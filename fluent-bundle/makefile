@@ -16,16 +16,16 @@ index.js: $(SOURCES)
 
 compat.js: $(SOURCES)
 	@eslint --no-eslintrc --config eslint_compat.js --max-warnings 0 src
-	@rollup $(CURDIR)/src/index.js \
-	    --config $(ROOT)/compat_config.js \
+	@rollup \
+	    --config compat_config.js \
 	    --banner "/* $(PACKAGE)@$(VERSION) */" \
-	    --amd.id $(PACKAGE) \
-	    --name $(GLOBAL) \
-	    --output.file $@
+		--amd.id $(PACKAGE) \
+	    --name $(GLOBAL)
+	@rm polyfill-ie11-cjs.js # temp file created by our rollup build
 	@echo -e " $(OK) $@ built"
 
 clean:
-	@rm -f index.js compat.js
+	@rm -f index.js compat.js polyfill-ie11.js
 	@rm -rf .nyc_output coverage
 	@echo -e " $(OK) clean"
 

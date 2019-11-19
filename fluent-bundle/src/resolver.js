@@ -1,5 +1,3 @@
-import "intl-pluralrules";
-
 /* global Intl */
 
 /**
