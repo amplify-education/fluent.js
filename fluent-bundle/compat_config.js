@@ -25,9 +25,8 @@ const config = [{
     entryFileNames: 'extraneous-library-code.js'
   },
   manualChunks: {
-    // This tells rollup's code-splitting to put all core-js and
-    // intl-pluralrules into a separate chunk, called polyfill-ie11
-    'polyfill-ie11': ['core-js', 'intl-pluralrules']
+    // This tells rollup's code-splitting to put all core-js code into a separate chunk, called polyfill-ie11
+    'polyfill-ie11': ['core-js']
   },
   plugins: [
     babel({

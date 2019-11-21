@@ -1,3 +1,5 @@
+import "intl-pluralrules"; // polyfill Intl.PluralRules for IE and Safari
+
 /* global Intl */
 
 /**

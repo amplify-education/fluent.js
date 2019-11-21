@@ -15,7 +15,9 @@ index.js: $(SOURCES)
 	@echo -e " $(OK) $@ built"
 
 compat.js: $(SOURCES)
-	@eslint --no-eslintrc --config eslint_compat.js --max-warnings 0 src
+	@eslint --no-eslintrc --config eslint_compat_ie11.js --max-warnings 0 src
+	@eslint --no-eslintrc --config eslint_compat_modern.js --max-warnings 0 src
+
 	@rollup \
 	    --config compat_config.js \
 	    --banner "/* $(PACKAGE)@$(VERSION) */" \
