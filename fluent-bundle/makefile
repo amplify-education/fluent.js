@@ -15,10 +15,10 @@ index.js: $(SOURCES)
 	@echo -e " $(OK) $@ built"
 
 compat.js: $(SOURCES)
-	@eslint --no-eslintrc --config eslint_compat_ie11.js --max-warnings 0 src
-	@eslint --no-eslintrc --config eslint_compat_modern.js --max-warnings 0 src
+	$(CURDIR)/../node_modules/eslint/bin/eslint.js --no-eslintrc --config eslint_compat_ie11.js --max-warnings 0 src
+	$(CURDIR)/../node_modules/eslint/bin/eslint.js --no-eslintrc --config eslint_compat_modern.js --max-warnings 0 src
 
-	@rollup \
+	$(CURDIR)/../node_modules/rollup/dist/bin/rollup \
 	    --config compat_config.js \
 	    --banner "/* $(PACKAGE)@$(VERSION) */" \
 		--amd.id $(PACKAGE) \
